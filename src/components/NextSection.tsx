@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +17,8 @@ export default function NextSection() {
   const cardsRef    = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const ctx = gsap.context(() => {
       const trigger = {
         trigger: sectionRef.current,
@@ -103,35 +106,38 @@ export default function NextSection() {
             </span>
             <span className="block overflow-hidden">
               <span ref={line2Ref} className="block">
-                quer <em className="not-italic font-semibold">ir?</em>
+                quer <em className="not-italic font-semibold">voar?</em>
               </span>
             </span>
           </h2>
 
           {/* Parágrafo */}
           <p ref={paraRef} className="text-sm leading-relaxed max-w-sm" style={{ color: "var(--text-muted)" }}>
-            De praias paradisíacas a refúgios nas montanhas —
-            descubra rotas feitas sob medida para cada tipo de viajante.
+            Mais de 50 rotas nacionais e internacionais.
+            Encontre o voo certo pelo preço certo — sem complicação.
           </p>
 
           {/* Botão */}
           <button
             ref={btnRef}
+            type="button"
             className="text-sm font-medium px-6 py-3 rounded-full w-fit transition-colors text-white"
-            style={{ background: "var(--azul-navy)" }}
+            style={{ background: "var(--azul-yellow)", color: "var(--azul-navy)" }}
           >
-            Ver Destinos
+            Explorar Destinos
           </button>
 
         </div>
 
-        {/* Coluna direita — grid de destinos */}
+        {/* Coluna direita — imagem */}
         <div className="flex items-center justify-center px-10 py-20 lg:w-1/2" style={{ background: "var(--bg-card)" }}>
-          <div ref={cardsRef} className="grid grid-cols-2 gap-4 w-full max-w-md">
-            {destinations.map((dest) => (
-              <DestinationCard key={dest.city} {...dest} />
-            ))}
-          </div>
+          <Image
+            src="/assets/destination-image.png"
+            alt="Destination"
+            width={600}
+            height={500}
+            className="w-full h-full object-cover rounded-2xl"
+          />
         </div>
 
       </div>
@@ -139,44 +145,7 @@ export default function NextSection() {
   );
 }
 
-const destinations = [
-  {
-    city: "Tóquio",
-    country: "Japão",
-    temp: "14°C",
-    height: "h-52",
-    gradient: "linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)",
-    accent: "#e94560",
-    emoji: "🗼",
-  },
-  {
-    city: "Dubai",
-    country: "Emirados Árabes",
-    temp: "32°C",
-    height: "h-40",
-    gradient: "linear-gradient(135deg, #f7971e, #e8a000, #c47a00)",
-    accent: "#fff",
-    emoji: "🏙️",
-  },
-  {
-    city: "Nova York",
-    country: "EUA",
-    temp: "9°C",
-    height: "h-40",
-    gradient: "linear-gradient(135deg, #2c3e50, #3d5166, #4a6080)",
-    accent: "#f39c12",
-    emoji: "🗽",
-  },
-  {
-    city: "Paris",
-    country: "França",
-    temp: "11°C",
-    height: "h-52",
-    gradient: "linear-gradient(135deg, #614385, #516395, #3d5a8a)",
-    accent: "#f8c8d4",
-    emoji: "🗼",
-  },
-];
+
 
 function DestinationCard({
   city,
@@ -227,7 +196,7 @@ function DestinationCard({
 
       {/* Ícone de avião */}
       <div className="absolute top-3 left-3 opacity-40 group-hover:opacity-70 transition-opacity duration-300">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path
             d="M21 16l-9-9-9 9M3 8l9-7 9 7"
             stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"

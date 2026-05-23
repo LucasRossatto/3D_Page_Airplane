@@ -1,11 +1,16 @@
 @import "tailwindcss";
 
 :root {
+  button {
+    cursor: pointer;
+  }
   /* Brand */
   --azul-navy: #0B2E5E;
   --azul-blue: #2D7BC4;
   --azul-green: #3BAA35;
-  --azul-yellow: #FFD100;
+  --azul-yellow: #FFC801;
+  --coral: #FF6B35;
+  --coral-soft: #FFF0EB;
 
   /* Surfaces (light) */
   --bg-page: #F5F7FA;
@@ -44,6 +49,8 @@
   --color-azul-blue: var(--azul-blue);
   --color-azul-green: var(--azul-green);
   --color-azul-yellow: var(--azul-yellow);
+  --color-coral: var(--coral);
+  --color-coral-soft: var(--coral-soft);
 
   /* Surfaces */
   --color-bg-page: var(--bg-page);
@@ -56,7 +63,14 @@
 body {
   background: var(--bg-page);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Focus ring global — garante navegação por teclado visível */
+:focus-visible {
+  outline: 2px solid var(--azul-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .airplane-text {
@@ -71,6 +85,16 @@ body {
   .airplane-text {
     top: 8%;
     transform: translateY(0);
+  }
+}
+
+/* background-attachment: fixed quebra em iOS — aplica só em desktop */
+.bg-fixed-desktop {
+  background-attachment: scroll;
+}
+@media (min-width: 1024px) {
+  .bg-fixed-desktop {
+    background-attachment: fixed;
   }
 }
 

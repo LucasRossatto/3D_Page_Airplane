@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import NextSection from "@/components/NextSection";
 import DestinationsSection from "@/components/DestinationsSection";
 import HowItWorks from "@/components/HowItWorks";
+import Footer from "@/components/Footer";
 
 const AirplaneCanvas = dynamic(() => import("../components/3dAirplane"));
 const AirplaneCrossCanvas = dynamic(() => import("../components/AirplaneCross"));
@@ -17,7 +18,7 @@ export default function Home() {
       <Hero />
 
       {/* Fase 2 — fly-past */}
-      <div id="scroll-space" style={{ height: "60vh", backgroundImage: "url('/assets/bg-hero-pouso.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", position: "relative" }}>
+      <div id="scroll-space " className="bg-fixed-desktop hidden md:block" style={{ height: "60vh", backgroundImage: "url('/assets/bg-hero-pouso.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", position: "relative" }}>
         <div
           className="absolute inset-0"
           style={{ background: "linear-gradient(to right, rgba(255,255,255,0.55) 40%, transparent 100%)" }}
@@ -35,6 +36,7 @@ export default function Home() {
       <DestinationsSection />
       
       <HowItWorks />
+      <Footer />
     </>
   );
 }

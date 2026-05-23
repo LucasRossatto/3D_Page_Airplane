@@ -12,27 +12,27 @@ const AirplaneDownCanvas = dynamic(() => import("./AirplaneDown"), { ssr: false 
 const STEPS = [
   {
     number: "01",
-    title: "Crie sua conta grátis",
+    title: "Crie sua conta em 2 minutos",
     description:
-      "Leva menos de 2 minutos. Basta e-mail e senha — sem cartão de crédito necessário.",
+      "Só e-mail e senha. Sem cartão de crédito, sem burocracia — você já pode pesquisar voos na hora.",
   },
   {
     number: "02",
-    title: "Escolha seu destino",
+    title: "Encontre o voo ideal",
     description:
-      "Explore mais de 50 rotas nacionais e internacionais com filtros por data, preço e escalas.",
+      "Filtre por data, preço, escalas e classe. Mais de 50 rotas disponíveis, com atualização diária de tarifas.",
   },
   {
     number: "03",
-    title: "Acumule milhas",
+    title: "Reserve e acumule milhas",
     description:
-      "Cada voo reservado gera pontos automáticos. Troque por upgrades, bagagens ou novos voos.",
+      "Cada reserva gera pontos automáticos. Use para upgrades, bagagem extra ou abater no próximo voo.",
   },
   {
     number: "04",
-    title: "Voe com economia",
+    title: "Economize em toda reserva",
     description:
-      "Membros economizam em média 23% em relação ao preço público. Quanto mais voa, mais benefícios.",
+      "Membros pagam em média 23% menos do que o preço público. Quanto mais você voa, maior o desconto.",
   },
 ];
 
@@ -40,6 +40,8 @@ export default function HowItWorks() {
   const stepsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useLayoutEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const ctx = gsap.context(() => {
       stepsRef.current.forEach((el, i) => {
         if (!el) return;
@@ -73,12 +75,11 @@ export default function HowItWorks() {
         style={{ background: "var(--border-default)" }}
       />
 
-      <div className="flex">
+      <div className="flex flex-col lg:flex-row">
 
-        {/* ── Esquerda: steps (55%) — scrollável normalmente ──── */}
+        {/* ── Esquerda: steps — scrollável normalmente ──── */}
         <div
-          className="flex flex-col justify-center px-10 lg:px-20 py-20 gap-16"
-          style={{ width: "55%" }}
+          className="flex flex-col justify-center px-10 lg:px-20 py-20 gap-16 w-full lg:w-[55%]"
         >
           {/* Header */}
           <div className="flex flex-col gap-4 max-w-lg">
@@ -88,17 +89,15 @@ export default function HowItWorks() {
               className="text-5xl sm:text-6xl font-light leading-[1.1] tracking-tight"
               style={{ color: "var(--azul-navy)" }}
             >
-              Simples assim,{" "}
-              <em className="not-italic font-semibold">voar</em>
-              <br />
-              custa menos.
+              Reserve seu voo{" "}
+              <em className="not-italic font-semibold">em 4 passos.</em>
             </h2>
 
             <p
               className="text-sm leading-relaxed max-w-sm"
               style={{ color: "var(--text-muted)" }}
             >
-              Do cadastro ao embarque em quatro passos. Economize desde a primeira reserva.
+              Sem ligações, sem fila, sem surpresa na fatura. Do cadastro ao embarque, tudo em minutos.
             </p>
           </div>
 
@@ -114,7 +113,7 @@ export default function HowItWorks() {
                 <div className="flex flex-col items-center gap-2 shrink-0">
                   <span
                     className="text-xs font-semibold tabular-nums"
-                    style={{ color: "var(--azul-blue)" }}
+                    style={{ color: "var(--azul-yellow)" }}
                   >
                     {step.number}
                   </span>
@@ -124,7 +123,7 @@ export default function HowItWorks() {
                       style={{
                         height: 56,
                         background:
-                          "linear-gradient(to bottom, var(--border-hover), transparent)",
+                          "linear-gradient(to bottom, var(--azul-yellow), transparent)",
                       }}
                     />
                   )}
@@ -150,19 +149,19 @@ export default function HowItWorks() {
 
             {/* CTA */}
             <button
+              type="button"
               className="text-sm font-medium px-6 py-3 rounded-full w-fit transition-opacity hover:opacity-80 text-white mt-2"
-              style={{ background: "var(--azul-navy)" }}
+              style={{ background: "var(--azul-yellow)", color: "var(--azul-navy)" }}
             >
               Criar conta grátis
             </button>
           </div>
         </div>
 
-        {/* ── Direita: canvas avião (45%) — sticky independente ── */}
+        {/* ── Direita: canvas avião — sticky independente ── */}
         <div
-          className="overflow-hidden sticky top-0 h-screen self-start"
+          className="hidden lg:block overflow-hidden sticky top-0 h-screen self-start w-full lg:w-[45%]"
           style={{
-            width: "45%",
             background: "var(--bg-card)",
             borderLeft: "1px solid var(--border-default)",
           }}

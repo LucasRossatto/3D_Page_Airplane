@@ -6,23 +6,23 @@ const SLIDES = [
   {
     n: "1",
     label: "Destinos",
-    heading: ["Experimente", "a Magia do", "Voo!"],
-    cta: "Explorar Destinos",
-    card: { title: "Destinos Incríveis", sub: "Descubra o mundo, uma aventura de cada vez." },
+    heading: ["Seu próximo", "destino está", "a um clique."],
+    cta: "Ver Destinos",
+    card: { title: "50+ destinos disponíveis", sub: "De Buenos Aires a Tóquio — reserve em minutos." },
   },
   {
     n: "2",
     label: "Ofertas",
-    heading: ["Passagens com", "Preços que", "Surpreendem!"],
+    heading: ["Voe mais,", "pague", "menos."],
     cta: "Ver Ofertas",
-    card: { title: "Economize Agora", sub: "Descontos de até 40% em rotas selecionadas." },
+    card: { title: "Até 40% mais barato", sub: "Membros economizam em média R$820 por reserva." },
   },
   {
     n: "3",
     label: "Pacotes",
-    heading: ["Pacotes", "Completos para", "Viajar Mais!"],
+    heading: ["Voo, hotel e", "transfer em", "um só lugar."],
     cta: "Ver Pacotes",
-    card: { title: "Tudo Incluído", sub: "Voo + hotel + transfers em um só lugar." },
+    card: { title: "Pacotes completos", sub: "Tudo resolvido. Você só precisa fazer as malas." },
   },
 ];
 
@@ -40,13 +40,12 @@ export default function Hero() {
   return (
     <section
       id="hero-section"
-      className="relative w-full min-h-screen flex flex-col px-10"
+      className="relative w-full min-h-screen flex flex-col px-10 bg-fixed-desktop"
       style={{
         backgroundImage: "url('/assets/bg-hero-pouso.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
       }}
     >
       {/* overlay suave para legibilidade do texto */}
@@ -57,29 +56,19 @@ export default function Hero() {
 
       {/* Navbar */}
       <nav
-        className="relative flex items-center justify-between px-8 lg:px-14 py-5"
+        className="relative flex items-center justify-between px-8 py-5"
         style={{ zIndex: 10 }}
+        aria-label="Navegação principal"
       >
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div
-            className="w-9 h-9 rounded-full flex items-center justify-center"
-            style={{ background: "var(--azul-blue)" }}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="9" stroke="white" strokeWidth="1.5" />
-              <path d="M3 12h18M12 3c-3 3-4.5 6-4.5 9s1.5 6 4.5 9M12 3c3 3 4.5 6 4.5 9s-1.5 6-4.5 9"
-                stroke="white" strokeWidth="1.5" />
-            </svg>
-          </div>
-          <span className="text-base font-semibold tracking-tight" style={{ color: "#111" }}>
-            Voa<span style={{ color: "var(--azul-blue)" }}>Lá</span>.
-          </span>
+        <div className="flex items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/assets/logo.png" alt="Voala" style={{ height: 28, width: "auto" }} />
         </div>
 
         {/* Nav links */}
         <div className="hidden lg:flex items-center gap-8">
-          {["Pacotes", "Contato", "Início", "Tour", "Sobre"].map((item) => (
+          {["Início", "Destinos", "Pacotes", "Sobre", "Contato"].map((item) => (
             <a
               key={item}
               href="#"
@@ -93,10 +82,11 @@ export default function Hero() {
 
         {/* CTA */}
         <button
+          type="button"
           className="text-sm font-semibold px-6 py-2.5 rounded-full transition-opacity hover:opacity-80 cursor-pointer"
-          style={{ background: "#111", color: "#fff" }}
+          style={{ background: "var(--azul-yellow)", color: "var(--azul-navy)" }}
         >
-          Reservar Viagem
+          Reservar Voo
         </button>
       </nav>
 
@@ -108,13 +98,16 @@ export default function Hero() {
           {SLIDES.map((s, i) => (
             <button
               key={s.n}
+              type="button"
               onClick={() => setActive(i)}
+              aria-label={`Ir para slide ${s.n}: ${s.label}`}
+              aria-pressed={active === i}
               className="flex flex-col items-center gap-1 group cursor-pointer"
             >
               <div
                 className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold transition-all"
                 style={{
-                  background: active === i ? "var(--azul-blue)" : "rgba(255,255,255,0.75)",
+                  background: active === i ? "var(--azul-yellow)" : "rgba(255,255,255,0.75)",
                   color: active === i ? "#fff" : "#555",
                   boxShadow: active === i ? "0 4px 14px rgba(45,123,196,0.35)" : "none",
                   border: active === i ? "none" : "1px solid rgba(0,0,0,0.1)",
@@ -135,27 +128,30 @@ export default function Hero() {
 
           {/* Heading */}
           <h1
-            className="text-5xl sm:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight"
+            className="text-5xl sm:text-6xl lg:text-[4.5rem]  leading-[1.05] tracking-tight"
             style={{ color: "#0a0a0a" }}
           >
             {slide.heading[0]}
             <br />
             {slide.heading[1]}
             <br />
-            <span style={{ color: "var(--azul-blue)" }}>{slide.heading[2]}</span>
+            <span style={{ color: "var(--azul-yellow)" }}>{slide.heading[2]}</span>
           </h1>
 
           {/* CTA row */}
           <div className="flex items-center gap-4 mt-2">
             <button
+              type="button"
               className="text-sm font-semibold px-7 py-3.5 rounded-full transition-opacity hover:opacity-80 cursor-pointer"
-              style={{ background: "var(--azul-blue)", color: "#fff" }}
+              style={{ background: "var(--azul-yellow)", color: "var(--azul-navy)" }}
             >
               {slide.cta}
             </button>
 
             {/* Play button */}
             <button
+              type="button"
+              aria-label="Assistir vídeo"
               className="w-12 h-12 rounded-full flex items-center justify-center transition-opacity hover:opacity-70 cursor-pointer"
               style={{
                 background: "rgba(255,255,255,0.85)",
@@ -163,7 +159,7 @@ export default function Hero() {
                 boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
               }}
             >
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path d="M3 2L12 7L3 12V2Z" fill="var(--azul-blue)" />
               </svg>
             </button>
@@ -193,10 +189,12 @@ export default function Hero() {
             </div>
 
             <button
+              type="button"
+              aria-label={`Saiba mais sobre ${slide.card.title}`}
               className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 cursor-pointer"
               style={{ background: "#111" }}
             >
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                 <path d="M2 6h8M6 2l4 4-4 4" stroke="white" strokeWidth="1.5"
                   strokeLinecap="round" strokeLinejoin="round" />
               </svg>

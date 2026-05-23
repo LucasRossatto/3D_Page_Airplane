@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Voalá  — Passagens Aéreas e Combos de Viagem",
+  title: "Voalá — Passagens Aéreas e Combos de Viagem",
   description: "Encontre as melhores passagens aéreas e combos de viagem com preços imbatíveis.",
 };
 
@@ -26,6 +26,7 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      style={{ colorScheme: "light" }}
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>{children}</body>
     </html>

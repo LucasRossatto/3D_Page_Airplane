@@ -19,21 +19,41 @@ interface Destination {
   tag?: string;
   description?: string;
   featured?: boolean;
+  image: string;
 }
 
 const DESTINATIONS: Destination[] = [
-  { city: "Paris",        country: "França",       region: "europe",   packages: ["economy","business","first"], duration: "10h", price: 2800, tag: "Mais Popular", featured: true,  description: "Arte, gastronomia e a Torre Eiffel iluminada." },
-  { city: "Tóquio",       country: "Japão",         region: "asia",     packages: ["economy","business","first"], duration: "24h", price: 5200, tag: "Novo",          featured: true,  description: "Tradição milenar e futurismo lado a lado." },
-  { city: "Nova York",    country: "EUA",           region: "americas", packages: ["economy","business","first"], duration: "9h",  price: 3400,                       featured: true,  description: "A cidade que nunca dorme." },
-  { city: "Dubai",        country: "Emirados",      region: "asia",     packages: ["business","first"],           duration: "14h", price: 6800, tag: "Luxo",                           description: "Luxo no deserto." },
-  { city: "Sydney",       country: "Austrália",     region: "oceania",  packages: ["economy","business","first"], duration: "27h", price: 6200,                                        description: "Opera House e Bondi Beach." },
-  { city: "Cape Town",    country: "África do Sul", region: "africa",   packages: ["economy","business","first"], duration: "16h", price: 4400, tag: "Novo",                           description: "Table Mountain e vinhedos." },
-  { city: "Roma",         country: "Itália",        region: "europe",   packages: ["economy","business"],         duration: "11h", price: 2400,                                        description: "Coliseu e gelato autêntico." },
-  { city: "Bangkok",      country: "Tailândia",     region: "asia",     packages: ["economy","business"],         duration: "22h", price: 4100,                                        description: "Templos dourados e street food." },
-  { city: "Miami",        country: "EUA",           region: "americas", packages: ["economy","business"],         duration: "8h",  price: 2900,                                        description: "Praias, art déco e vida noturna." },
-  { city: "Lisboa",       country: "Portugal",      region: "europe",   packages: ["economy"],                    duration: "9h",  price: 1900,                                        description: "Fados, pastéis e o Tejo." },
-  { city: "Buenos Aires", country: "Argentina",     region: "americas", packages: ["economy"],                    duration: "3h",  price: 1100,                                        description: "Tango e parrilla." },
-  { city: "Cingapura",    country: "Singapura",     region: "asia",     packages: ["economy","business","first"], duration: "23h", price: 4700,                                        description: "Marina Bay e Gardens by the Bay." },
+  { city: "Paris",        country: "França",       region: "europe",   packages: ["economy","business","first"], duration: "10h", price: 2800, tag: "Mais Popular", featured: true,  description: "Arte, gastronomia e a Torre Eiffel iluminada.",  image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80" },
+  { city: "Tóquio",       country: "Japão",        region: "asia",     packages: ["economy","business","first"], duration: "24h", price: 5200, tag: "Novo",          featured: true,  description: "Tradição milenar e futurismo lado a lado.",      image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80" },
+  { city: "Nova York",    country: "EUA",          region: "americas", packages: ["economy","business","first"], duration: "9h",  price: 3400,                       featured: true,  description: "A cidade que nunca dorme.",                      image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&q=80" },
+  { city: "Dubai",        country: "Emirados",     region: "asia",     packages: ["business","first"],           duration: "14h", price: 6800, tag: "Luxo",                           description: "Luxo no deserto.",                               image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80" },
+  { city: "Sydney",       country: "Austrália",    region: "oceania",  packages: ["economy","business","first"], duration: "27h", price: 6200,                                        description: "Opera House e Bondi Beach.",                     image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=80" },
+  { city: "Cape Town",    country: "África do Sul",region: "africa",   packages: ["economy","business","first"], duration: "16h", price: 4400, tag: "Novo",                           description: "Table Mountain e vinhedos.",                     image: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=80" },
+  { city: "Roma",         country: "Itália",       region: "europe",   packages: ["economy","business"],         duration: "11h", price: 2400,                                        description: "Coliseu e gelato autêntico.",                    image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&q=80" },
+  { city: "Bangkok",      country: "Tailândia",    region: "asia",     packages: ["economy","business"],         duration: "22h", price: 4100,                                        description: "Templos dourados e street food.",                image: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=800&q=80" },
+  { city: "Miami",        country: "EUA",          region: "americas", packages: ["economy","business"],         duration: "8h",  price: 2900,                                        description: "Praias, art déco e vida noturna.",               image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" },
+  { city: "Lisboa",       country: "Portugal",     region: "europe",   packages: ["economy"],                    duration: "9h",  price: 1900,                                        description: "Fados, pastéis e o Tejo.",                       image: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80" },
+  { city: "Buenos Aires", country: "Argentina",    region: "americas", packages: ["economy"],                    duration: "3h",  price: 1100,                                        description: "Tango e parrilla.",                              image: "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800&q=80" },
+  { city: "Cingapura",    country: "Singapura",    region: "asia",     packages: ["economy","business","first"], duration: "23h", price: 4700,                                        description: "Marina Bay e Gardens by the Bay.",               image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&q=80" },
+  { city: "Amsterdã",     country: "Holanda",      region: "europe",   packages: ["economy","business"],         duration: "12h", price: 2600,                                        description: "Canais, museus e tulipas.",                      image: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=800&q=80" },
+  { city: "Istambul",     country: "Turquia",      region: "europe",   packages: ["economy","business","first"], duration: "13h", price: 3100, tag: "Novo",                           description: "Entre Europa e Ásia, Hagia Sophia e o Bósforo.", image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&q=80" },
+  { city: "Marrakech",    country: "Marrocos",     region: "africa",   packages: ["economy","business"],         duration: "11h", price: 2200,                                        description: "Souks, riad e o deserto do Saara.",              image: "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800&q=80" },
+  { city: "Bali",         country: "Indonésia",    region: "asia",     packages: ["economy","business"],         duration: "26h", price: 4300,                                        description: "Templos, arrozais e praias de tirar o fôlego.",  image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80" },
+  { city: "Cancún",       country: "México",       region: "americas", packages: ["economy","business"],         duration: "7h",  price: 2100,                                        description: "Caribe turquesa, ruínas maias e cenotes.",       image: "https://images.unsplash.com/photo-1552074284-5e88ef1aef18?w=800&q=80" },
+  { city: "Praga",        country: "Rep. Tcheca",  region: "europe",   packages: ["economy"],                    duration: "13h", price: 2300,                                        description: "Cidade medieval, pontes históricas e cerveja.",  image: "https://images.unsplash.com/photo-1541849546-216549ae216d?w=800&q=80" },
+  { city: "Nairobi",      country: "Quênia",       region: "africa",   packages: ["economy","business"],         duration: "14h", price: 3800, tag: "Novo",                           description: "Safari no Masai Mara e vida selvagem única.",    image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80" },
+  { city: "Vancouver",    country: "Canadá",       region: "americas", packages: ["economy","business","first"], duration: "11h", price: 3600,                                        description: "Montanhas, oceano e a cidade mais verde do mundo.", image: "https://images.unsplash.com/photo-1559511260-66a654ae982a?w=800&q=80" },
+  { city: "Seul",         country: "Coreia do Sul",region: "asia",     packages: ["economy","business","first"], duration: "22h", price: 4900, tag: "Novo",                           description: "K-pop, gastronomia e templos milenares.",        image: "https://images.unsplash.com/photo-1538485399081-7191377e8241?w=800&q=80" },
+  { city: "Barcelona",    country: "Espanha",      region: "europe",   packages: ["economy","business"],         duration: "11h", price: 2500,                                        description: "Gaudí, praias e a vibrante vida noturna.",       image: "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=800&q=80" },
+  { city: "Montevidéu",   country: "Uruguai",      region: "americas", packages: ["economy"],                    duration: "3h",  price: 980,                                         description: "Rambla, charme colonial e o melhor churrasco.",  image: "https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?w=800&q=80" },
+  { city: "Auckland",     country: "Nova Zelândia",region: "oceania",  packages: ["economy","business"],         duration: "29h", price: 6800,                                        description: "Hobbiton, fiordes e natureza selvagem.",         image: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800&q=80" },
+  { city: "Cairo",        country: "Egito",        region: "africa",   packages: ["economy","business"],         duration: "12h", price: 2700, tag: "Novo",                           description: "Pirâmides de Gizé e o Rio Nilo.",               image: "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?w=800&q=80" },
+  { city: "Zanzibar",     country: "Tanzânia",     region: "africa",   packages: ["economy","business"],         duration: "16h", price: 4100,                                        description: "Praias brancas, especiarias e cultura swahili.", image: "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?w=800&q=80" },
+  { city: "Lagos",        country: "Nigéria",      region: "africa",   packages: ["economy"],                    duration: "10h", price: 2900,                                        description: "A maior metrópole africana, vibrante e diversa.", image: "https://images.unsplash.com/photo-1618828665011-0abd973f7bb8?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&q=80" },
+  { city: "Melbourne",    country: "Austrália",    region: "oceania",  packages: ["economy","business","first"], duration: "27h", price: 6400,                                        description: "Café, arte de rua e o Grand Prix.",             image: "https://images.unsplash.com/photo-1514395462725-fb4566210144?w=800&q=80" },
+  { city: "Fiji",         country: "Fiji",         region: "oceania",  packages: ["economy","business"],         duration: "22h", price: 5900, tag: "Luxo",                           description: "Ilhas de coral, lagoas cristalinas e resorts.",  image: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=800&q=80" },
+  { city: "Queenstown",   country: "Nova Zelândia",region: "oceania",  packages: ["economy","business"],         duration: "30h", price: 7100,                                        description: "Capital mundial dos esportes radicais.",         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" },
+  { city: "Papeete",      country: "Polinésia Fr.", region: "oceania", packages: ["business","first"],           duration: "25h", price: 8200, tag: "Luxo",                           description: "Bungalôs sobre a água e lagoas turquesa.",       image: "https://images.unsplash.com/photo-1738692620483-e4255eb3e80a?q=80&w=1071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&q=80" },
 ];
 
 const REGIONS: { key: Region | "all"; label: string }[] = [
@@ -90,6 +110,8 @@ export default function DestinationsSection() {
   const visible = filtered.slice(0, 6);
 
   useLayoutEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const ctx = gsap.context(() => {
       const trigger = { trigger: sectionRef.current, start: "top 80%", toggleActions: "play none none none" };
       gsap.from(headingRef.current, { opacity: 0, y: 40, duration: 0.9, ease: "power3.out", scrollTrigger: trigger });
@@ -100,6 +122,8 @@ export default function DestinationsSection() {
 
   useLayoutEffect(() => {
     if (!gridRef.current) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const cards = gridRef.current.querySelectorAll<HTMLElement>(".dest-card");
     gsap.fromTo(cards,
       { opacity: 0, y: 28, scale: 0.97 },
@@ -118,12 +142,9 @@ export default function DestinationsSection() {
       {/* Header */}
       <div ref={headingRef} className="mb-10 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 rounded-full px-4 py-1 w-fit mb-5" style={{ border: "1px solid var(--border-default)" }}>
-            <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--azul-green)" }} />
-            <span className="text-xs tracking-widest uppercase font-medium" style={{ color: "var(--text-muted)" }}>Destinos</span>
-          </div>
+          
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-light leading-[1.05] tracking-tight" style={{ color: "var(--azul-navy)" }}>
-            Explore o<br /><em className="not-italic font-semibold">Mundo.</em>
+            Explore o <em className="not-italic font-semibold" style={{ color: "var(--azul-yellow)" }}>Mundo.</em>
           </h2>
         </div>
         <p className="text-sm max-w-xs lg:text-right" style={{ color: "var(--text-placeholder)" }}>
@@ -135,29 +156,20 @@ export default function DestinationsSection() {
       <div ref={filtersRef} className="flex flex-col gap-3 mb-10">
         <div className="flex flex-wrap gap-2">
           {REGIONS.map(({ key, label }) => (
-            <button key={key} onClick={() => setRegion(key as Region | "all")}
+            <button key={key} type="button" onClick={() => setRegion(key as Region | "all")}
+              aria-pressed={region === key}
               className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200
                 ${region === key
                   ? "text-white"
                   : ""}`}
               style={region === key
-                ? { background: "var(--azul-navy)", borderColor: "var(--azul-navy)", color: "white" }
+                ? { background: "var(--azul-yellow)", borderColor: "var(--azul-yellow)", color: "white" }
                 : { color: "var(--text-muted)", borderColor: "var(--border-default)" }}>
               {label}
             </button>
           ))}
         </div>
-        <div className="flex flex-wrap gap-2">
-          {PACKAGES.map(({ key, label }) => (
-            <button key={key} onClick={() => setPkg(key as Package | "all")}
-              className={`px-4 py-1.5 rounded-full text-xs font-medium border transition-all duration-200`}
-              style={pkg === key
-                ? { background: "var(--bg-blue-soft)", color: "var(--azul-blue)", borderColor: "var(--azul-blue)" }
-                : { color: "var(--text-placeholder)", borderColor: "var(--border-default)" }}>
-              {label}
-            </button>
-          ))}
-        </div>
+        
       </div>
 
       {/* Grid */}
@@ -213,7 +225,6 @@ const SLOT_STYLE: { col: string; row: string; variant: "banner" | "tall" | "wide
 function BentoCard({ dest, slot }: { dest: Destination; slot: number }) {
   const { col, row, variant } = SLOT_STYLE[slot] ?? SLOT_STYLE[0];
   const isBanner = variant === "banner";
-  const bg     = REGION_BG[dest.region];
   const accent = REGION_ACCENT[dest.region];
 
   return (
@@ -222,28 +233,35 @@ function BentoCard({ dest, slot }: { dest: Destination; slot: number }) {
       style={{
         ["--col" as string]: col,
         ["--row" as string]: row,
-        background: bg,
-        border: `1px solid ${accent}22`,
       } as React.CSSProperties}
     >
-      {/* Gradiente de luz */}
+      {/* Imagem de fundo */}
       <div
-        className="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity duration-500"
-        style={{ background: `radial-gradient(ellipse at top left, ${accent}33, transparent 65%)` }}
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+        style={{ backgroundImage: `url(${dest.image})` }}
+      />
+
+      {/* Overlay escuro base */}
+      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500" />
+
+      {/* Gradiente de texto na base */}
+      <div
+        className="absolute inset-0"
+        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)" }}
       />
 
       {/* Tag */}
       {dest.tag && (
         <span
-          className="absolute top-3 left-3 z-10 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full text-white"
-          style={{ background: "var(--azul-navy)" }}
+          className="absolute top-3 left-3 z-10 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full text-white backdrop-blur-sm"
+          style={{ background: "var(--azul-yellow)", border: "none" }}
         >
           {dest.tag}
         </span>
       )}
 
       {/* Duração */}
-      <div className="absolute top-3 right-3 z-10 flex items-center gap-1 text-[10px]" style={{ color: "var(--text-muted)" }}>
+      <div className="absolute top-3 right-3 z-10 flex items-center gap-1 text-[10px] text-white/80 backdrop-blur-sm px-2 py-0.5 rounded-full" style={{ background: "rgba(0,0,0,0.3)" }}>
         <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
           <circle cx="5" cy="5" r="4" stroke="currentColor" strokeWidth="1"/>
           <path d="M5 3v2.5l1.5 1" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
@@ -251,33 +269,21 @@ function BentoCard({ dest, slot }: { dest: Destination; slot: number }) {
         {dest.duration}
       </div>
 
-      {/* Avião decorativo */}
-      <svg
-        className="absolute opacity-[0.06] group-hover:opacity-[0.12] transition-opacity duration-500 -rotate-12"
-        style={{ right: isBanner ? "5%" : "-10%", bottom: isBanner ? "10%" : "-10%", width: isBanner ? 140 : 100, height: isBanner ? 140 : 100 }}
-        viewBox="0 0 24 24" fill="var(--azul-navy)"
-      >
-        <path d="M21 16v-2l-8-5V3.5A1.5 1.5 0 0 0 11.5 2h0A1.5 1.5 0 0 0 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/>
-      </svg>
-
       {/* Conteúdo */}
-      <div className="absolute inset-0 flex flex-col justify-between p-4">
-        <div />
-
+      <div className="absolute inset-0 flex flex-col justify-end p-4 z-10">
         <div className={`flex ${isBanner ? "flex-row items-end justify-between gap-4" : "flex-col gap-3"}`}>
           <div className="flex flex-col gap-1">
-            <p className="text-xs" style={{ color: "var(--text-muted)" }}>{dest.country}</p>
+            <p className="text-[11px] text-white/60">{dest.country}</p>
             <h3
-              className="font-semibold tracking-tight leading-none"
-              style={{ fontSize: isBanner ? "clamp(1.6rem, 3vw, 2.4rem)" : "1.35rem", color: "var(--azul-navy)" }}
+              className="font-semibold tracking-tight leading-none text-white"
+              style={{ fontSize: isBanner ? "clamp(1.6rem, 3vw, 2.4rem)" : "1.25rem" }}
             >
               {dest.city}
             </h3>
 
             {isBanner && dest.description && (
-              <p className="text-xs mt-1 max-w-xs leading-relaxed
-                opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
-                style={{ color: "var(--text-muted)" }}>
+              <p className="text-xs mt-1 max-w-xs leading-relaxed text-white/70
+                opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                 {dest.description}
               </p>
             )}
@@ -286,8 +292,8 @@ function BentoCard({ dest, slot }: { dest: Destination; slot: number }) {
               {dest.packages.filter(p => p !== "all").map((p) => (
                 <span
                   key={p}
-                  className="text-[9px] font-medium px-2 py-0.5 rounded-full"
-                  style={{ background: `${accent}18`, color: accent }}
+                  className="text-[9px] font-medium px-2 py-0.5 rounded-full backdrop-blur-sm"
+                  style={{ background: "rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.85)" }}
                 >
                   {PKG_LABEL[p as Package]}
                 </span>
@@ -297,11 +303,15 @@ function BentoCard({ dest, slot }: { dest: Destination; slot: number }) {
 
           <div className={`flex ${isBanner ? "flex-col items-end gap-2" : "flex-row items-center justify-between"} shrink-0`}>
             <div className={isBanner ? "text-right" : ""}>
-              <p className="text-[9px] uppercase tracking-wider" style={{ color: "var(--text-placeholder)" }}>a partir de</p>
-              <p className="text-base font-semibold" style={{ color: "var(--azul-blue)" }}>R$ {dest.price.toLocaleString("pt-BR")}</p>
+              <p className="text-[9px] uppercase tracking-wider text-white/50">a partir de</p>
+              <p className="text-base font-semibold text-white">
+                {new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 }).format(dest.price)}
+              </p>
             </div>
             <button
-              className="flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold text-white transition-all duration-200 hover:scale-105"
+              type="button"
+              aria-label={`Reservar voo para ${dest.city}`}
+              className="flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold text-white transition-all duration-200 hover:scale-105 backdrop-blur-sm"
               style={{ background: accent }}
             >
               Reservar
