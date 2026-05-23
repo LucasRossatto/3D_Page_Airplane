@@ -158,6 +158,13 @@ export default function AirplaneCanvas() {
         camera={{ position: [0, 0, 50], fov: 40 }}
         gl={{ antialias: true, alpha: true }}
         style={{ background: "transparent", width: "100%", height: "100%" }}
+        onCreated={() => {
+          const warn = console.warn.bind(console);
+          console.warn = (...args: unknown[]) => {
+            if (typeof args[0] === "string" && args[0].includes("THREE.Clock")) return;
+            warn(...args);
+          };
+        }}
       >
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 8, 5]} intensity={2.0} castShadow />
