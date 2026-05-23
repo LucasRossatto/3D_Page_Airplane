@@ -126,7 +126,7 @@ export default function NewsletterAlert() {
                     name="email"
                     autoComplete="email"
                     spellCheck={false}
-                    placeholder="voce@email.com"
+                    placeholder="voce@email.com…"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     className="w-full px-4 py-3.5 rounded-2xl text-sm font-medium outline-none"
@@ -156,7 +156,7 @@ export default function NewsletterAlert() {
                     onChange={e => setDest(e.target.value)}
                     className="w-full px-4 py-3.5 rounded-2xl text-sm font-medium outline-none appearance-none"
                     style={{
-                      background: "rgba(255,255,255,0.07)",
+                      background: "#0B2E5E",
                       border: "1.5px solid rgba(255,255,255,0.12)",
                       color: dest ? "#fff" : "rgba(255,255,255,0.35)",
                       transition: "border-color 180ms",
