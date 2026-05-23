@@ -182,7 +182,7 @@ export default function FAQ() {
           </div>
           <button
             type="button"
-            className="shrink-0 text-sm font-bold px-6 py-3 rounded-2xl"
+            className="shrink-0 text-sm font-semibold px-6 py-3 rounded-full"
             style={{
               background: "var(--azul-navy)",
               color: "#fff",

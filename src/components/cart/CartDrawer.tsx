@@ -95,9 +95,9 @@ function CartItemRow({ item, onRemove, onUpdatePassengers, onUpdateCabin }: {
               key={c}
               type="button"
               onClick={() => onUpdateCabin(c)}
-              className="text-[10px] font-bold px-2.5 py-1.5 rounded-lg flex-1"
+              className="text-[10px] font-semibold px-2.5 py-1.5 rounded-full flex-1"
               style={{
-                transition: "all 150ms",
+                transition: "background 150ms, color 150ms, border-color 150ms",
                 ...(item.cabinClass === c
                   ? { background: accent, color: "#fff", border: `1.5px solid ${accent}` }
                   : { background: "#fff", color: "#9AA3B0", border: "1.5px solid #E5E7EB" }),
@@ -215,8 +215,8 @@ export default function CartDrawer() {
             <button
               type="button"
               onClick={handleClose}
-              className="px-6 py-3 rounded-2xl text-sm font-bold"
-              style={{ background: "var(--azul-navy)", color: "#fff" }}
+              className="px-6 py-3 rounded-full text-sm font-semibold"
+              style={{ background: "var(--azul-navy)", color: "#fff", transition: "opacity 200ms" }}
             >
               Explorar destinos
             </button>
@@ -355,8 +355,10 @@ function CheckoutView({ total, savings, items, onBack, onClose }: {
         <button
           type="button"
           onClick={() => { clear(); onClose(); }}
-          className="w-full py-4 rounded-2xl font-black text-sm"
-          style={{ background: "var(--azul-navy)", color: "#fff" }}
+          className="w-full py-4 rounded-2xl font-bold text-sm"
+          style={{ background: "var(--azul-navy)", color: "#fff", transition: "opacity 150ms, transform 150ms" }}
+          onMouseEnter={e => { e.currentTarget.style.opacity = "0.9"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+          onMouseLeave={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "translateY(0)"; }}
         >
           Voltar ao início
         </button>
@@ -415,9 +417,9 @@ function CheckoutView({ total, savings, items, onBack, onClose }: {
                 key={label}
                 type="button"
                 onClick={() => { setActivePayment(label); if (label === "Pix") setInstallments(1); }}
-                className="text-[12px] font-bold px-3.5 py-2 rounded-xl"
+                className="text-[12px] font-semibold px-3.5 py-2 rounded-full"
                 style={{
-                  transition: "all 150ms",
+                  transition: "background 150ms, color 150ms, border-color 150ms",
                   ...(activePayment === label
                     ? { background: "var(--azul-navy)", color: "#fff", border: "1.5px solid var(--azul-navy)" }
                     : { background: "#F4F6FA", color: "#6B7280", border: "1.5px solid #E5E7EB" }),
@@ -439,9 +441,9 @@ function CheckoutView({ total, savings, items, onBack, onClose }: {
                     key={n}
                     type="button"
                     onClick={() => setInstallments(n)}
-                    className="text-[12px] font-semibold px-3 py-1.5 rounded-lg"
+                    className="text-[12px] font-semibold px-3 py-1.5 rounded-full"
                     style={{
-                      transition: "all 150ms",
+                      transition: "background 150ms, color 150ms, border-color 150ms",
                       ...(safeInst === n
                         ? { background: "var(--azul-navy)", color: "#fff", border: "1.5px solid var(--azul-navy)" }
                         : { background: "transparent", color: "#9AA3B0", border: "1.5px solid #E5E7EB" }),

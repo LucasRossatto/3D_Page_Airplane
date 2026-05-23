@@ -78,7 +78,8 @@ export default function DestinationsSection() {
               type="button"
               onClick={() => setRegion(key as Region | "all")}
               aria-pressed={region === key}
-              className="px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200"
+              className="px-4 py-1.5 rounded-full text-sm font-medium border"
+              style={{ transition: "background 200ms, border-color 200ms, color 200ms" }}
               style={region === key
                 ? { background: "var(--azul-yellow)", borderColor: "var(--azul-yellow)", color: "var(--azul-navy)" }
                 : { color: "var(--text-muted)", borderColor: "var(--border-default)" }}
@@ -107,13 +108,14 @@ export default function DestinationsSection() {
 
           <div className="flex justify-end mt-8">
             <button
-              className="group flex items-center gap-3 rounded-full px-7 py-3 text-sm font-medium transition-all duration-300"
-              style={{ border: "1px solid var(--border-default)", color: "var(--text-muted)" }}
+              type="button"
+              className="group flex items-center gap-3 rounded-full px-7 py-3 text-sm font-medium"
+              style={{ border: "1px solid var(--border-default)", color: "var(--text-muted)", transition: "border-color 200ms, color 200ms" }}
             >
               Ver todos os {filtered.length}+ destinos
               <span
-                className="w-5 h-5 rounded-full flex items-center justify-center group-hover:text-white transition-all duration-300"
-                style={{ border: "1px solid var(--border-default)" }}
+                className="w-5 h-5 rounded-full flex items-center justify-center"
+                style={{ border: "1px solid var(--border-default)", transition: "background 200ms, color 200ms" }}
               >
                 <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
                   <path d="M1 7L7 1M7 1H2M7 1V6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
