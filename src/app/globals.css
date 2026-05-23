@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand */
+  --azul-navy: #0B2E5E;
+  --azul-blue: #2D7BC4;
+  --azul-green: #3BAA35;
+  --azul-yellow: #FFD100;
+
+  /* Surfaces (light) */
+  --bg-page: #F5F7FA;
+  --bg-card: #EEF1F5;
+  --bg-green-soft: #E6F4E5;
+  --bg-yellow-soft: #FFF5CC;
+  --bg-blue-soft: #E3F0FC;
+
+  /* Text */
+  --text-primary: #0B2E5E;
+  --text-body: #3D4F63;
+  --text-muted: #6E7A88;
+  --text-placeholder: #B0BAC5;
+
+  /* Borders */
+  --border-default: #DCE2E8;
+  --border-hover: #B0BAC5;
+
+  /* Semantic */
+  --success: #3BAA35;
+  --warning: #E6A800;
+  --info: #2D7BC4;
+
+  --background: #F5F7FA;
+  --foreground: #0B2E5E;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Brand */
+  --color-azul-navy: var(--azul-navy);
+  --color-azul-blue: var(--azul-blue);
+  --color-azul-green: var(--azul-green);
+  --color-azul-yellow: var(--azul-yellow);
+
+  /* Surfaces */
+  --color-bg-page: var(--bg-page);
+  --color-bg-card: var(--bg-card);
+  --color-bg-green-soft: var(--bg-green-soft);
+  --color-bg-yellow-soft: var(--bg-yellow-soft);
+  --color-bg-blue-soft: var(--bg-blue-soft);
+}
+
+body {
+  background: var(--bg-page);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.airplane-text {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  top: 25%;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 639px) {
+  .airplane-text {
+    top: 8%;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Bento Grid responsivo ─────────────────────────────────────────────── */
+
+/* Mobile: 1 coluna empilhada */
+.bento-grid {
+  grid-template-columns: 1fr;
+  grid-auto-rows: 200px;
+}
+
+.bento-card {
+  grid-column: 1 / -1 !important;
+  grid-row: auto !important;
+}
+
+/* Tablet: 2 colunas */
+@media (min-width: 640px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+  }
+  .bento-card {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
+
+/* Desktop: bento completo 12 colunas com slots fixos via CSS var */
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 240px 240px;
+    grid-auto-rows: unset;
+  }
+  .bento-card {
+    grid-column: var(--col) !important;
+    grid-row: var(--row) !important;
+  }
+}

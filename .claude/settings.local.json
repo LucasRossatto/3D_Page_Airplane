@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd /c \"dir /a /b C:\\\\Users\\\\LucasRossatto\\\\Desktop\\\\projetos\\\\pessoal\\\\3D_Page_Airplane\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\(''''version'''',''''?''''\\)\\)\")",
+      "Bash(find c:/Users/LucasRossatto/Desktop/projetos/pessoal/3D_Page_Airplane/ -name *.glb -o -name *.gltf)",
+      "Bash(node -e \":*)",
+      "Bash(node -e \"console.log\\(require\\(''./node_modules/three/package.json''\\).version\\)\")",
+      "Bash(node -e \"console.log\\(require\\(''./node_modules/@react-three/fiber/package.json''\\).version\\)\")"
+    ]
+  }
+}
