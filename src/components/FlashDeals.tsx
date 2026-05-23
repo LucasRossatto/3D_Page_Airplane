@@ -16,16 +16,19 @@ interface Deal {
   salePrice: number;
   expiresIn: number; // seconds
   airline: string;
-  date: string;
+  date: Date;
 }
 
+const fmtDate = (d: Date) =>
+  new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "short" }).format(d);
+
 const DEALS: Deal[] = [
-  { id: "1", from: "GRU", to: "Paris",      toCode: "CDG", flag: "🇫🇷", originalPrice: 4200, salePrice: 2799, expiresIn: 3 * 3600 + 22 * 60 + 10, airline: "Air France",   date: "15 Jul" },
-  { id: "2", from: "GRU", to: "Tóquio",     toCode: "NRT", flag: "🇯🇵", originalPrice: 7800, salePrice: 4990, expiresIn: 1 * 3600 + 47 * 60 + 33, airline: "JAL",          date: "22 Ago" },
-  { id: "3", from: "GRU", to: "Nova York",  toCode: "JFK", flag: "🇺🇸", originalPrice: 5100, salePrice: 3199, expiresIn: 5 * 3600 + 8 * 60 + 55, airline: "LATAM",        date: "10 Jul" },
-  { id: "4", from: "GRU", to: "Lisboa",     toCode: "LIS", flag: "🇵🇹", originalPrice: 3400, salePrice: 1899, expiresIn: 0 * 3600 + 58 * 60 + 21, airline: "TAP",          date: "03 Ago" },
-  { id: "5", from: "GRU", to: "Dubai",      toCode: "DXB", flag: "🇦🇪", originalPrice: 9200, salePrice: 6490, expiresIn: 2 * 3600 + 33 * 60 + 44, airline: "Emirates",     date: "18 Set" },
-  { id: "6", from: "GRU", to: "Barcelona",  toCode: "BCN", flag: "🇪🇸", originalPrice: 4800, salePrice: 2599, expiresIn: 4 * 3600 + 15 * 60 + 0, airline: "Iberia",       date: "28 Jul" },
+  { id: "1", from: "GRU", to: "Paris",      toCode: "CDG", flag: "🇫🇷", originalPrice: 4200, salePrice: 2799, expiresIn: 3 * 3600 + 22 * 60 + 10, airline: "Air France",   date: new Date(2026, 6, 15) },
+  { id: "2", from: "GRU", to: "Tóquio",     toCode: "NRT", flag: "🇯🇵", originalPrice: 7800, salePrice: 4990, expiresIn: 1 * 3600 + 47 * 60 + 33, airline: "JAL",          date: new Date(2026, 7, 22) },
+  { id: "3", from: "GRU", to: "Nova York",  toCode: "JFK", flag: "🇺🇸", originalPrice: 5100, salePrice: 3199, expiresIn: 5 * 3600 + 8 * 60 + 55,  airline: "LATAM",        date: new Date(2026, 6, 10) },
+  { id: "4", from: "GRU", to: "Lisboa",     toCode: "LIS", flag: "🇵🇹", originalPrice: 3400, salePrice: 1899, expiresIn: 0 * 3600 + 58 * 60 + 21, airline: "TAP",          date: new Date(2026, 7, 3)  },
+  { id: "5", from: "GRU", to: "Dubai",      toCode: "DXB", flag: "🇦🇪", originalPrice: 9200, salePrice: 6490, expiresIn: 2 * 3600 + 33 * 60 + 44, airline: "Emirates",     date: new Date(2026, 8, 18) },
+  { id: "6", from: "GRU", to: "Barcelona",  toCode: "BCN", flag: "🇪🇸", originalPrice: 4800, salePrice: 2599, expiresIn: 4 * 3600 + 15 * 60 + 0,  airline: "Iberia",       date: new Date(2026, 6, 28) },
 ];
 
 const fmt = (v: number) =>
@@ -85,7 +88,7 @@ function DealCard({ deal }: { deal: Deal }) {
             <span className="text-2xl mr-1">{deal.flag}</span>
             <span className="text-xl font-black" style={{ color: "#0B2E5E" }}>{deal.to}</span>
           </div>
-          <span className="text-[11px] font-medium pb-0.5" style={{ color: "#9AA3B0" }}>{deal.date}</span>
+          <span className="text-[11px] font-medium pb-0.5" style={{ color: "#9AA3B0" }}>{fmtDate(deal.date)}</span>
         </div>
         <span className="text-[11px]" style={{ color: "#9AA3B0" }}>{deal.airline} · ida e volta</span>
       </div>
