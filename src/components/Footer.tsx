@@ -94,15 +94,15 @@ export default function Footer() {
         <div className="flex items-center gap-3 shrink-0">
           <button
             type="button"
-            className="text-sm font-semibold px-6 py-3 rounded-full transition-opacity hover:opacity-80"
-            style={{ background: "var(--azul-yellow)", color: "var(--azul-navy)" }}
+            className="text-sm font-semibold px-6 py-3 rounded-full hover:opacity-80"
+            style={{ background: "var(--azul-yellow)", color: "var(--azul-navy)", transition: "opacity 200ms" }}
           >
             Criar conta grátis
           </button>
           <button
             type="button"
-            className="text-sm font-medium px-6 py-3 rounded-full transition-opacity hover:opacity-70"
-            style={{ border: "1px solid rgba(255,255,255,0.2)", color: "#fff" }}
+            className="text-sm font-medium px-6 py-3 rounded-full hover:opacity-70"
+            style={{ border: "1px solid rgba(255,255,255,0.2)", color: "#fff", transition: "opacity 200ms" }}
           >
             Explorar destinos
           </button>
@@ -122,6 +122,8 @@ export default function Footer() {
             <img
               src="/assets/logo.png"
               alt="Voala"
+              width={120}
+              height={44}
               style={{ height: 44, width: "auto", filter: "brightness(0) invert(1)" }}
             />
           </div>
