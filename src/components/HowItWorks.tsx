@@ -150,8 +150,8 @@ export default function HowItWorks() {
             {/* CTA */}
             <button
               type="button"
-              className="text-sm font-medium px-6 py-3 rounded-full w-fit transition-opacity hover:opacity-80 text-white mt-2"
-              style={{ background: "var(--azul-yellow)", color: "var(--azul-navy)" }}
+              className="text-sm font-medium px-6 py-3 rounded-full w-fit text-white mt-2"
+              style={{ background: "var(--azul-yellow)", color: "var(--azul-navy)", transition: "opacity 200ms" }}
             >
               Criar conta — é grátis
             </button>

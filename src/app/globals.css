@@ -70,7 +70,7 @@ body {
 :focus-visible {
   outline: 2px solid var(--azul-blue);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: inherit;
 }
 
 .airplane-text {
