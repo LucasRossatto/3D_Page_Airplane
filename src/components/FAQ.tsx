@@ -49,11 +49,11 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
     if (!bodyRef.current) return;
     if (!open) {
       gsap.fromTo(bodyRef.current,
-        { height: 0, opacity: 0 },
-        { height: "auto", opacity: 1, duration: 0.32, ease: "power3.out" }
+        { maxHeight: 0, opacity: 0 },
+        { maxHeight: 400, opacity: 1, duration: 0.32, ease: "power3.out" }
       );
     } else {
-      gsap.to(bodyRef.current, { height: 0, opacity: 0, duration: 0.24, ease: "power3.in" });
+      gsap.to(bodyRef.current, { maxHeight: 0, opacity: 0, duration: 0.24, ease: "power3.in" });
     }
     setOpen(v => !v);
   };
@@ -94,7 +94,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
       <div
         ref={bodyRef}
         id={`faq-body-${index}`}
-        style={{ height: 0, overflow: "hidden", opacity: 0 }}
+        style={{ maxHeight: 0, overflow: "hidden", opacity: 0 }}
       >
         <p className="px-5 pb-5 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
           {a}
