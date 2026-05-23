@@ -121,8 +121,8 @@ export default function NextSection() {
           <button
             ref={btnRef}
             type="button"
-            className="text-sm font-medium px-6 py-3 rounded-full w-fit transition-colors text-white"
-            style={{ background: "var(--azul-yellow)", color: "var(--azul-navy)" }}
+            className="text-sm font-medium px-6 py-3 rounded-full w-fit text-white"
+            style={{ background: "var(--azul-yellow)", color: "var(--azul-navy)", transition: "opacity 200ms" }}
           >
             Explorar Destinos
           </button>
@@ -136,97 +136,12 @@ export default function NextSection() {
             alt="Destination"
             width={600}
             height={500}
+            priority
             className="w-full h-full object-cover rounded-2xl"
           />
         </div>
 
       </div>
     </section>
-  );
-}
-
-
-
-function DestinationCard({
-  city,
-  country,
-  temp,
-  height,
-  gradient,
-  accent,
-  emoji,
-}: {
-  city: string;
-  country: string;
-  temp: string;
-  height: string;
-  gradient: string;
-  accent: string;
-  emoji: string;
-}) {
-  return (
-    <div
-      className={`dest-card relative ${height} rounded-3xl overflow-hidden hover:scale-[1.03] hover:shadow-xl transition-all duration-300 cursor-pointer group`}
-      style={{ background: gradient }}
-    >
-      {/* Ruído sutil */}
-      <div className="absolute inset-0 opacity-10"
-        style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }} />
-
-      {/* Overlay escuro no hover */}
-      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-
-      {/* Emoji decorativo centralizado */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span
-          className="text-5xl opacity-20 group-hover:opacity-30 group-hover:scale-110 transition-all duration-300 select-none"
-          style={{ filter: "grayscale(0.3)" }}
-        >
-          {emoji}
-        </span>
-      </div>
-
-      {/* Temperatura */}
-      <div
-        className="absolute top-3 right-3 px-2 py-0.5 rounded-full text-xs font-medium backdrop-blur-sm"
-        style={{ background: "rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.9)" }}
-      >
-        {temp}
-      </div>
-
-      {/* Ícone de avião */}
-      <div className="absolute top-3 left-3 opacity-40 group-hover:opacity-70 transition-opacity duration-300">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path
-            d="M21 16l-9-9-9 9M3 8l9-7 9 7"
-            stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-          />
-          <path
-            d="M12 2v20M2 12h20"
-            stroke="white" strokeWidth="1" strokeLinecap="round" opacity="0.4"
-          />
-        </svg>
-      </div>
-
-      {/* Info + CTA */}
-      <div className="absolute bottom-0 left-0 right-0 px-4 pb-4 pt-8"
-        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)" }}>
-        <div className="flex items-end justify-between">
-          <div>
-            <p className="text-sm font-semibold tracking-tight text-white leading-tight">{city}</p>
-            <p className="text-xs text-white/60">{country}</p>
-          </div>
-          <div
-            className="w-7 h-7 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            style={{ background: accent, border: "none" }}
-          >
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-              <path d="M2 8L8 2M8 2H3M8 2V7" stroke={gradient.includes("f7971e") ? "#1a1a1a" : "white"}
-                strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
