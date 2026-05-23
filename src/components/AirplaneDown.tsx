@@ -6,6 +6,7 @@ import { Canvas } from "@react-three/fiber";
 import { useGLTF, Environment, Center } from "@react-three/drei";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { cloneAirplaneMaterials } from "../utils/cloneAirplaneMaterials";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,27 +15,7 @@ function AirplaneDown() {
   const groupRef = useRef<THREE.Group>(null);
   const { scene } = useGLTF("/a320.glb");
 
-  const cloned = useMemo(() => {
-    const clone = scene.clone(true);
-    clone.traverse((child) => {
-      if (!(child instanceof THREE.Mesh)) return;
-      const materials: THREE.Material[] = Array.isArray(child.material)
-        ? child.material.map((m: THREE.Material) => m.clone())
-        : [child.material.clone()];
-      materials.forEach((mat) => {
-        const m = mat as THREE.MeshStandardMaterial;
-        m.transparent = false;
-        m.opacity     = 1;
-        m.alphaTest   = 0;
-        m.alphaMap    = null;
-        m.depthWrite  = true;
-        m.side        = THREE.FrontSide;
-        m.needsUpdate = true;
-      });
-      child.material = materials.length === 1 ? materials[0] : materials;
-    });
-    return clone;
-  }, [scene]);
+  const cloned = useMemo(() => cloneAirplaneMaterials(scene), [scene]);
 
   useLayoutEffect(() => {
     const group = groupRef.current;
