@@ -9,12 +9,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function NextSection() {
   const sectionRef  = useRef<HTMLElement>(null);
-  const badgeRef    = useRef<HTMLDivElement>(null);
   const line1Ref    = useRef<HTMLSpanElement>(null);
   const line2Ref    = useRef<HTMLSpanElement>(null);
   const paraRef     = useRef<HTMLParagraphElement>(null);
   const btnRef      = useRef<HTMLButtonElement>(null);
-  const cardsRef    = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -27,13 +25,6 @@ export default function NextSection() {
       };
 
       const base = { opacity: 0, y: 40 };
-
-      gsap.from(badgeRef.current, {
-        ...base,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: trigger,
-      });
 
       gsap.from(line1Ref.current, {
         y: "110%",
@@ -67,18 +58,6 @@ export default function NextSection() {
         scrollTrigger: trigger,
       });
 
-      if (cardsRef.current) {
-        const cards = cardsRef.current.querySelectorAll<HTMLDivElement>(".dest-card");
-        gsap.from(cards, {
-          opacity: 0,
-          x: 50,
-          duration: 0.7,
-          ease: "power3.out",
-          stagger: 0.12,
-          delay: 0.15,
-          scrollTrigger: trigger,
-        });
-      }
     }, sectionRef);
 
     return () => ctx.revert();
