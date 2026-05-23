@@ -98,6 +98,21 @@ body {
   }
 }
 
+/* ─── BentoCard interactions ────────────────────────────────────────────── */
+.dest-card:hover .card-img {
+  transform: scale(1.07);
+}
+
+.dest-card:hover .card-panel-reveal {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.dest-card:hover .card-cta-arrow {
+  transform: scale(1.12);
+  box-shadow: 0 6px 24px var(--accent-shadow, rgba(0,0,0,0.4));
+}
+
 /* ─── Bento Grid responsivo ─────────────────────────────────────────────── */
 
 /* Mobile: 1 coluna empilhada */
