@@ -25,7 +25,7 @@ export default function Home() {
 
       {/* Fase 2 — fly-past */}
       <div
-        id="scroll-space "
+        id="scroll-space"
         className="bg-fixed-desktop hidden md:block"
         style={{
           height: "60vh",
