@@ -6,23 +6,23 @@ const SLIDES = [
   {
     n: "1",
     label: "Destinos",
-    heading: ["Seu próximo", "destino está", "a um clique."],
-    cta: "Ver Destinos",
-    card: { title: "50+ destinos disponíveis", sub: "De Buenos Aires a Tóquio — reserve em minutos." },
+    heading: ["Onde você", "quer estar", "amanhã?"],
+    cta: "Explorar Destinos",
+    card: { title: "50+ destinos. Reserve hoje.", sub: "De Buenos Aires a Tóquio em poucos cliques." },
   },
   {
     n: "2",
     label: "Ofertas",
-    heading: ["Voe mais,", "pague", "menos."],
-    cta: "Ver Ofertas",
-    card: { title: "Até 40% mais barato", sub: "Membros economizam em média R$820 por reserva." },
+    heading: ["Voe mais.", "Pague muito", "menos."],
+    cta: "Ver Ofertas Ativas",
+    card: { title: "Membros economizam R$820/reserva", sub: "Tarifas exclusivas para quem já cadastrou." },
   },
   {
     n: "3",
     label: "Pacotes",
-    heading: ["Voo, hotel e", "transfer em", "um só lugar."],
+    heading: ["Voo, hotel e", "transfer num", "pacote só."],
     cta: "Ver Pacotes",
-    card: { title: "Pacotes completos", sub: "Tudo resolvido. Você só precisa fazer as malas." },
+    card: { title: "Tudo incluso. Zero estresse.", sub: "Você só precisa fazer as malas." },
   },
 ];
 
@@ -86,7 +86,7 @@ export default function Hero() {
           className="text-sm font-semibold px-6 py-2.5 rounded-full transition-opacity hover:opacity-80 cursor-pointer"
           style={{ background: "var(--azul-yellow)", color: "var(--azul-navy)" }}
         >
-          Reservar Voo
+          Buscar Voos
         </button>
       </nav>
 

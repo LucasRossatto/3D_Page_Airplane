@@ -12,27 +12,27 @@ const AirplaneDownCanvas = dynamic(() => import("./AirplaneDown"), { ssr: false 
 const STEPS = [
   {
     number: "01",
-    title: "Crie sua conta em 2 minutos",
+    title: "Cadastro em 2 minutos",
     description:
-      "Só e-mail e senha. Sem cartão de crédito, sem burocracia — você já pode pesquisar voos na hora.",
+      "Só e-mail e senha. Sem cartão de crédito — você já pesquisa voos na hora.",
   },
   {
     number: "02",
-    title: "Encontre o voo ideal",
+    title: "Escolha o voo certo",
     description:
-      "Filtre por data, preço, escalas e classe. Mais de 50 rotas disponíveis, com atualização diária de tarifas.",
+      "Filtre por data, preço, escalas e classe. 50+ rotas com tarifas atualizadas todo dia.",
   },
   {
     number: "03",
-    title: "Reserve e acumule milhas",
+    title: "Reserve e ganhe milhas",
     description:
-      "Cada reserva gera pontos automáticos. Use para upgrades, bagagem extra ou abater no próximo voo.",
+      "Cada compra gera milhas automáticas. Troque por upgrade, bagagem extra ou desconto real no próximo voo.",
   },
   {
     number: "04",
-    title: "Economize em toda reserva",
+    title: "Pague menos sempre",
     description:
-      "Membros pagam em média 23% menos do que o preço público. Quanto mais você voa, maior o desconto.",
+      "Membros pagam 23% a menos que o preço público. O desconto cresce conforme você voa.",
   },
 ];
 
@@ -89,15 +89,15 @@ export default function HowItWorks() {
               className="text-5xl sm:text-6xl font-light leading-[1.1] tracking-tight"
               style={{ color: "var(--azul-navy)" }}
             >
-              Reserve seu voo{" "}
-              <em className="not-italic font-semibold">em 4 passos.</em>
+              Do cadastro ao{" "}
+              <em className="not-italic font-semibold">embarque em minutos.</em>
             </h2>
 
             <p
               className="text-sm leading-relaxed max-w-sm"
               style={{ color: "var(--text-muted)" }}
             >
-              Sem ligações, sem fila, sem surpresa na fatura. Do cadastro ao embarque, tudo em minutos.
+              Sem ligações. Sem fila. Sem surpresa na fatura.
             </p>
           </div>
 
@@ -153,7 +153,7 @@ export default function HowItWorks() {
               className="text-sm font-medium px-6 py-3 rounded-full w-fit transition-opacity hover:opacity-80 text-white mt-2"
               style={{ background: "var(--azul-yellow)", color: "var(--azul-navy)" }}
             >
-              Criar conta grátis
+              Criar conta — é grátis
             </button>
           </div>
         </div>
