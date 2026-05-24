@@ -79,10 +79,12 @@ export default function DestinationsSection() {
               onClick={() => setRegion(key as Region | "all")}
               aria-pressed={region === key}
               className="px-4 py-1.5 rounded-full text-sm font-medium border"
-              style={{ transition: "background 200ms, border-color 200ms, color 200ms" }}
-              style={region === key
-                ? { background: "var(--azul-yellow)", borderColor: "var(--azul-yellow)", color: "var(--azul-navy)" }
-                : { color: "var(--text-muted)", borderColor: "var(--border-default)" }}
+              style={{
+                transition: "background 200ms, border-color 200ms, color 200ms",
+                ...(region === key
+                  ? { background: "var(--azul-yellow)", borderColor: "var(--azul-yellow)", color: "var(--azul-navy)" }
+                  : { color: "var(--text-muted)", borderColor: "var(--border-default)" }),
+              }}
             >
               {label}
             </button>
